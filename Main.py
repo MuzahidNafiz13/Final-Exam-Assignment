@@ -46,6 +46,8 @@ def find_account(bank, account_number):
 def user_panel(bank):
     while True:
         print("\n\t[O_O] User Panel [O_O]\t")
+
+        print("0. Create Account")
         print("1. Deposit")
         print("2. Withdraw")
         print("3. Check Balance")
@@ -55,7 +57,13 @@ def user_panel(bank):
         print("7. Back to Main Menu")
         choice = input("Enter your choice: ")
 
-        if choice == "1":
+        if choice == "0":
+            name = input("Enter your name: ")
+            email = input("Enter your email: ")
+            address = input("Enter your address: ")
+            account_type = input("Enter account type (Savings/Current): ")
+            bank.create_account(name, email, address, account_type)
+        elif choice == "1":
             account_number = int(input("Enter your account number: "))
             amount = float(input("Enter deposit amount: "))
             account = find_account(bank, account_number)
